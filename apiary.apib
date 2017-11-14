@@ -1,0 +1,188 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# applcp
+
+ApplCP REST Agent deployed on FACS
+
+
+## Request Collection [/requests]
+
+### List All Requests [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                 "requestId": [30397036, 30397040 ]
+            }
+        ]
+
+## Custom Action on a request Option 1 [/requests/{request_id}/]
++ Parameters
+    + request_id (number) - ID of the Request in the form of an integer
+
+### Custom Action on a request Option 1 [POST]
+You may execute a custom action using the following on the request. (Option 1) 
+
++ Request (application/json)
+
+        {
+            "action": "execute",
+            "requestExectionContext": {
+                "requestId": 30397036,
+                "requestHandle": "aValidRequestHandle"
+            },
+            "requestParameters": [
+                {
+                    "name": "key1",
+                    "paramType": "BOOLEAN",
+                    "value": "value1"
+                },
+                {
+                    "name": "key2",
+                    "paramType": "STRING",
+                    "value": "value2"
+                },
+            ],
+            "AsyncStatus": "value1",
+            "MessagePayload": "value1"
+
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /requests/2
+
+    + Body
+
+            {
+                 "HandlerAction": {
+                          "HandlerStatus": "BIZ_ERROR",
+                          "Message": "A Business Error Occured.",
+                          "Throwable": {
+                              "detailMessage": "The Error",
+                              "object" : "value1"
+                          }
+                 }
+            }
+## Execute a request Option 2 [/requests/{request_id}/execute/]
++ Parameters
+    + request_id (number) - ID of the Request in the form of an integer
+
+### Execute a request Option 2 [POST]
+You may execute the request. This is an alternative API (Option 2)
+
++ Request (application/json)
+
+        {
+            "requestExectionContext": {
+                "requestId": 30397036,
+                "requestHandle": "aValidRequestHandle"
+            },
+            "requestParameters": [
+                {
+                    "name": "key1",
+                    "paramType": "BOOLEAN",
+                    "value": "value1"
+                },
+                {
+                    "name": "key2",
+                    "paramType": "STRING",
+                    "value": "value2"
+                },
+            ]
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /requests/2/execute
+
+    + Body
+
+            {
+                 "HandlerAction": {
+                          "HandlerStatus": "BIZ_ERROR",
+                          "Message": "A Business Error Occured.",
+                          "Throwable": {
+                              "detailMessage": "The Error",
+                              "object" : "value1"
+                          }
+                 }
+            }
+## Cancel Request Action Option 2 [/requests/{request_id}/cancel]
++ Parameters
+    + request_id (number) - ID of the Request in the form of an integer
+
+### Cancel a request (Option 2) [GET]
+You may cancel the request. This is an alternative API (Option 2)
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /requests/2/cancel
+
+    + Body
+
+            {
+                 "HandlerAction": {
+                          "HandlerStatus": "BIZ_ERROR",
+                          "Message": "A Business Error Occured.",
+                          "Throwable": {
+                              "detailMessage": "The Error",
+                              "object" : "value1"
+                          }
+                 }
+            }
+## onEvent Request Action Option 2 [/requests/{request_id}/onevent]
++ Parameters
+    + request_id (number) - ID of the Request in the form of an integer
+
+### onEvent for a request Option 2 [POST]
+You may invoke onEvent on the request. This is an alternative API (Option 2)
++ Request (application/json)
+
+        {
+            "requestExectionContext": {
+                "requestId": 30397036,
+                "requestHandle": "aValidRequestHandle"
+            },
+            "requestParameters": [
+                {
+                    "name": "key1",
+                    "paramType": "BOOLEAN",
+                    "value": "value1"
+                },
+                {
+                    "name": "key2",
+                    "paramType": "STRING",
+                    "value": "value2"
+                },
+            ],
+            "AsyncStatus": "value1",
+            "MessagePayload": "value1"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /requests/2/onevent
+
+    + Body
+
+            {
+                 "HandlerAction": {
+                          "HandlerStatus": "BIZ_ERROR",
+                          "Message": "A Business Error Occured.",
+                          "Throwable": {
+                              "detailMessage": "The Error",
+                              "object" : "value1"
+                          }
+                 }
+            }
