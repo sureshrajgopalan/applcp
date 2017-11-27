@@ -45,8 +45,8 @@ You may execute a custom action using the following on the request. (Option 1)
                     "value": "value2"
                 },
             ],
-            "AsyncStatus": "value1",
-            "MessagePayload": "value1"
+            "asyncStatus": "value1",
+            "messagePayload": "value1"
 
         }
 
@@ -59,10 +59,10 @@ You may execute a custom action using the following on the request. (Option 1)
     + Body
 
             {
-                 "HandlerAction": {
-                          "HandlerStatus": "BIZ_ERROR",
-                          "Message": "A Business Error Occured.",
-                          "Throwable": {
+                 "handlerAction": {
+                          "handlerStatus": "BIZ_ERROR",
+                          "message": "A Business Error Occured.",
+                          "throwable": {
                               "detailMessage": "The Error",
                               "object" : "value1"
                           }
@@ -105,10 +105,10 @@ You may execute the request. This is an alternative API (Option 2)
     + Body
 
             {
-                 "HandlerAction": {
-                          "HandlerStatus": "BIZ_ERROR",
-                          "Message": "A Business Error Occured.",
-                          "Throwable": {
+                 "handlerAction": {
+                          "handlerStatus": "BIZ_ERROR",
+                          "message": "A Business Error Occured.",
+                          "throwable": {
                               "detailMessage": "The Error",
                               "object" : "value1"
                           }
@@ -130,10 +130,10 @@ You may cancel the request. This is an alternative API (Option 2)
     + Body
 
             {
-                 "HandlerAction": {
-                          "HandlerStatus": "BIZ_ERROR",
-                          "Message": "A Business Error Occured.",
-                          "Throwable": {
+                 "handlerAction": {
+                          "handlerStatus": "BIZ_ERROR",
+                          "message": "A Business Error Occured.",
+                          "throwable": {
                               "detailMessage": "The Error",
                               "object" : "value1"
                           }
@@ -164,8 +164,8 @@ You may invoke callabck on the request. This is an alternative API (Option 2)
                     "value": "value2"
                 },
             ],
-            "AsyncStatus": "value1",
-            "MessagePayload": "value1"
+            "asyncStatus": "value1",
+            "messagePayload": "value1"
         }
 
 + Response 200 (application/json)
